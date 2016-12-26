@@ -1,0 +1,265 @@
+#sidebar{
+    position: fixed;
+    height: 100%;
+    width: 30%;
+    left: 0%;
+    top: 0%;
+}
+
+.barSquare{
+    position: relative; height: 25px; width: 25px; display: block; text-align: center; color: white; opacity: .5; transition: opacity .5s;
+
+}
+
+.highlight{
+    opacity: 1;
+}
+.hLine{
+    border-bottom: thick solid black;
+}
+
+.upArrow{
+    position: fixed; top: 0%; color: white; left: 49.5%; transform: rotate(90deg) translateX(-50%); font-size: 3em; z-index: 2000; cursor: pointer; opacity: .5; transition: opacity .5s, display .5s;
+}
+
+.upArrow:hover{
+    opacity: 1;
+}
+
+.downArrow{
+    position: fixed; bottom: -2%; color: white; left: 49.5%; transform: rotate(90deg) translateX(-50%); font-size: 3em; z-index: 2000; cursor: pointer; opacity: .5; transition: opacity .5s, display .5s;
+}
+
+.downArrow:hover{
+    opacity: 1;
+}
+
+.pineappleText{
+	color: #FFF33B;
+}
+
+#bitch{
+	opacity: 0; 
+}
+
+#textBlock{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+    transform: translate(-50%, -50%);
+}
+.text {
+	font-family: Ethos;
+	color: white;
+	margin: 0;
+}
+
+.big{
+	font-size: 4em;
+	margin-left: -3px;
+}
+
+.medium{
+	font-size: 2em;
+}
+
+.tiny{
+	font-size: .75em;
+}
+
+.hYellow:hover{
+    cursor: pointer;
+    color: yellow;
+}
+
+#pineapple{
+    position: absolute;
+    height: 400%;
+    transform: translateY(-36%) translateX(-40%);
+}
+
+.animate{
+	animation-name: bob;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes bob{
+	0%{transform: translateY(0px);}
+	50%{transform: translateY(-8px);}
+	100%{transform: translateY(0px);}
+}
+
+.paused{
+	animation-play-state: paused;
+}
+
+section {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	overflow: hidden;
+	background-color: black;
+	transition: margin-top .5s ease-in-out;
+}
+
+#second{
+	margin-top: 100%;
+}
+
+#third{
+
+	margin-top: 200%;
+}
+
+#fourth{
+	margin-top: 300%;
+}
+
+#fifth{
+	margin-top: 400%;
+}
+
+#logo{
+	height: 80px;
+	width: 50px;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -172%);
+    position: absolute;
+
+}
+
+/*second */
+
+#snowContainer{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+	width: 50%;
+}
+
+#snowContainer2{
+	position: absolute;
+	top: 0;
+	left: 60%;
+	transform: translateX(-50%);
+	height: 100%;
+	width: 100%;
+}
+
+#img1{
+	clip-path: url(#ring1);
+	-webkit-clip-path: url(#ring1);
+}
+
+.sway0{
+	animation: sway0 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway0{
+	0%{margin-left: 0%; transform: translate(140px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(140px) rotate(15deg);}
+}
+
+.sway1{
+	animation: sway1 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway1{
+	0%{margin-left: 0%; transform: translate(40px, 170px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(40px, 170px) rotate(15deg);}
+}
+
+.sway2{
+	animation: sway2 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway2{
+	0%{margin-left: 0%; transform: translate(160px, 110px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(160px, 110px) rotate(15deg);}
+}
+
+.sway3{
+	animation: sway3 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway3{
+	0%{margin-left: 0%; transform: translate(40px, 280px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(40px, 280px) rotate(15deg);}
+}
+
+.sway4{
+	animation: sway4 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway4{
+	0%{margin-left: 0%; transform: translate(340px, 340px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(340px, 340px) rotate(15deg);}
+}
+
+.sway5{
+	animation: sway5 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway5{
+	0%{margin-left: 0%; transform: translate(200px, 420px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(200px, 420px) rotate(15deg);}
+}
+
+.sway6{
+	animation: sway6 2s ease-in-out infinite alternate;
+	transition: transform 2s;
+}
+
+@keyframes sway6{
+	0%{margin-left: 0%; transform: translate(-10px, 500px) rotate(-15deg);}
+	100%{margin-left:10%; transform: translate(-10px, 500px) rotate(15deg);}
+}
+
+.flash{
+	animation: flash .1s linear forwards;
+	animation-iteration-count: 10;
+}
+
+@keyframes flash{
+	0%{color: white;}
+	100%{color: yellow;}
+}
+
+.vContainer{
+	height: inherit;
+	width: inherit;
+	overflow: hidden;
+}
+
+.linkItem{
+	float: left;
+	text-decoration: none;
+	transition: color .25s;
+}
+
+.linkItem:hover{
+	color: #fcf064;
+}
+
+#links{
+	position: absolute;
+	top: 5%;
+	left: 50%;
+}
+
+#links li{
+	list-style: none;
+}
