@@ -1,0 +1,49 @@
+#container{
+	position: absolute;
+	display: flex;
+	width: 40%;
+	height: auto;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20%;
+	flex-direction: column;
+}
+
+.item{
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+.slideshow{
+	transition: margin-left 1s;
+}
+
+.slide{
+	max-width: 100%;
+}
+
+.text {
+	font-family: Ethos;
+	color: white;
+	margin: 0;
+}
+
+.linkItem{
+	float: left;
+	text-decoration: none;
+	transition: color .25s;
+}
+
+.linkItem:hover{
+	color: #D3D3D3;
+}
+
+#links{
+	position: fixed;
+	top: 5%;
+	left: 50%;
+}
+
+#links li{
+	list-style: none;
+}
