@@ -54,6 +54,7 @@ function moveAll(){
 	var move5 = setInterval(moveDown, 25, balls[4], -92, 64, .37);
 	var move6 = setInterval(moveDown, 25, balls[5], -115, 47, .3);
 	var move7 = setInterval(moveDown, 25, balls[6], -154, 28, .20);
+	setInterval(moveDown, 25, balls[4], -92, 64, .37);
 }
 
 moveAll();
@@ -84,6 +85,29 @@ var myVar2 = setInterval(setSway, 500, i);
 
 //transitions
 
+function playStatus(x){ //takes in the counter value controls audio
+	switch(x){
+		case(1):
+		{
+			start("californiaDreamin", currentAudio);
+			startBoosts(true, boost1, boost2, boost3);
+			break;
+		}
+		case(2):
+		{
+			start("patours", currentAudio);
+			setTimeout(startBoosts, 4900, false, boost1, boost2, boost3);
+			break;
+		}
+		default:
+		{
+			stop("californiaDreamin");
+			stop("patours");
+			startBoosts(true, boost1, boost2, boost3);
+			break;
+		}
+	}
+}
 function moveRight() {
 	var sections = document.getElementsByTagName('section');
 
@@ -107,6 +131,7 @@ function moveRight() {
 	    arrows[0].style.display = "block";
 	    arrows[1].style.display = "block";
 	}
+	playStatus(counter.value);
 }
 
 function moveLeft() {
@@ -132,41 +157,101 @@ function moveLeft() {
 	    arrows[0].style.display = "block";
 	    arrows[1].style.display = "block";
 	}
+	playStatus(counter.value);
 }
 
 //third
 
 function addBoost(objects, i){
-    setTimeout(function () { objects[i].style.display = "block";}, 1000*i);
+    setTimeout(function () { objects[i].style.display = "block";}, 30*i);
 }
 
 function removeBoost(objects, k){
-    setTimeout(function () { objects[k].style.display = "none";}, 2000-(k*1000));
+    setTimeout(function () { objects[k].style.display = "none";}, 60-(k*20));
 }
 
-function boost(x) { //put in a class "boost_"
-    console.log("started boost");
-    var boost = x;
+function boost(x, amount) { //put in a class "boost_"
+    var boost = document.getElementsByClassName(x);
 
-    for (var i = 0; i < 3; i++) {
-        console.log(i);
+    for (var i = 0; i < amount; i++) {
        addBoost(boost, i);
     }
 }
 
-function subBoost(x) {
-    console.log("started sub boost");
-    var boost = x;
+function sBoost(x){
+	var boost = document.getElementsByClassName(x);
 
-    for (var k = 2; k > -1; k--) {
-        console.log(k);
+    for (var i = 3; i < 5; i++) {
+       addBoost(boost, i);
+    }
+}
+
+function subBoost(x, amount) {
+    var boost = document.getElementsByClassName(x);
+
+    for (var k = amount-1; k > -1; k--) {
         removeBoost(boost, k);
     }
 }
 
-function altBoost(x) {
-    var boosts = document.getElementsByClassName(x);
+function sSubBoost(x) {
+    var boost = document.getElementsByClassName(x);
 
-    setInterval(boost, 3000, boosts);
-    setInterval(subBoost, 6000, boosts);
+    for (var k = 4; k > 2; k--) {
+        removeBoost(boost, k);
+    }
+}
+
+function altBoost(x, amount) {
+    boost(x, amount);
+    setTimeout(subBoost, 300, x, amount);
+}
+
+function superBoost(x){
+	boost(x, 3); //takes 90 ms
+	setTimeout(sBoost, 350, x); //add outer 
+	setTimeout(sSubBoost, 800, x); //remove outer
+	setTimeout(subBoost, 830, x, 3); //remove inner
+}
+//audio
+
+var currentAudio={
+	value: "patours"
+};
+
+function start(x, currentAudio){ //starts playing audio x string
+	var audio = document.getElementById(x);
+	var cAudio = document.getElementById(currentAudio.value); //pass in a string of id
+	cAudio.load();
+	currentAudio.value = x;
+	audio.play();
+}
+
+function stop(x){
+	document.getElementById(x).load();
+}
+
+var boost1={ //hold the intervals
+	value: 9
+};
+var boost2={
+	value:9
+};
+var boost3={
+	value:9
+};
+
+function startBoosts(x, boost1, boost2, boost3){
+	if(x == true){
+		clearInterval(boost1.value);
+		clearInterval(boost2.value);
+		clearInterval(boost3.value);
+	}
+	else{
+		altBoost("boost1", 3);
+		boost1.value = setInterval(superBoost, 1464, "boost1", 3);
+		setTimeout(function(){altBoost("boost2", 3);}, 732);
+		boost3.value = setInterval(altBoost, 2196, "boost3", 3);
+		boost2.value = setInterval(altBoost, 183, "boost2", 2);
+	}
 }
