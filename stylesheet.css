@@ -263,3 +263,8 @@ section {
 #links li{
 	list-style: none;
 }
+
+.boost{
+	width: 800px;
+	position: absolute;
+}
