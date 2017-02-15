@@ -5,6 +5,10 @@
     <title>LINES</title>
 </head>
 <body>
+	<div id="loading" style="background-color: black; height: 100vh; width: 100vw; position: absolute; z-index: 2000;">
+		<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Ethos; color: white;">Loading</div>
+	</div>
+			
 <a class="upArrow arrow" style="display: none;"onclick="moveLeft()">&#10092</a>    
 <a class="downArrow arrow" onclick="moveRight()">&#10093</a>
 <div id="bar" style="position: fixed; z-index: 2000; height: 100px; width: 25px; top: 50%; right: 5%; transform: translateY(-50%);">
@@ -1063,5 +1067,12 @@ A long time ago I put you, a pineapple, in a box. This box is time-proof and peo
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
     </script>
     <script src="lolscript.js"></script>
+	<script type="text/javascript">
+		var video = document.getElementsByTagName("video")[0];
+		video.onload() = function(){
+			var loading = document.getElementById("loading");
+			document.body.removeChild(loading);
+		}
+	</script>
 </body>
 </html>
