@@ -73,7 +73,6 @@ function setSway(i){
 		clearInterval(myVar2);
 	}
 	else{ 
-		console.log(i.value);
 		balls[i.value].classList.add("sway" + i.value);
 		i.value++;
 	}
